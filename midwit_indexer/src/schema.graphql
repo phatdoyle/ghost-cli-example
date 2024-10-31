@@ -1,0 +1,324 @@
+type Query {
+  globalMetrics(where: GlobalMetricsFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): GlobalMetricsPage!
+  transfer(id: String!): Transfer
+  transfers(where: TransferFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): TransferPage!
+  numberChanged(id: String!): NumberChanged
+  numberChangeds(where: NumberChangedFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): NumberChangedPage!
+  _meta: _meta
+}
+
+type GlobalMetricsPage {
+  items: [GlobalMetrics!]!
+  pageInfo: PageInfo!
+}
+
+type GlobalMetrics {
+  id: String!
+  totalCalls: BigInt!
+  totalSupply: BigInt!
+}
+
+scalar BigInt
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+input GlobalMetricsFilter {
+  AND: [GlobalMetricsFilter]
+  OR: [GlobalMetricsFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  totalCalls: BigInt
+  totalCalls_not: BigInt
+  totalCalls_in: [BigInt]
+  totalCalls_not_in: [BigInt]
+  totalCalls_gt: BigInt
+  totalCalls_lt: BigInt
+  totalCalls_gte: BigInt
+  totalCalls_lte: BigInt
+  totalSupply: BigInt
+  totalSupply_not: BigInt
+  totalSupply_in: [BigInt]
+  totalSupply_not_in: [BigInt]
+  totalSupply_gt: BigInt
+  totalSupply_lt: BigInt
+  totalSupply_gte: BigInt
+  totalSupply_lte: BigInt
+}
+
+type Transfer {
+  id: String!
+  from: String!
+  to: String!
+  value: BigInt!
+  txHash: String!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  numberChanges(where: NumberChangedFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): NumberChangedPage
+}
+
+type NumberChangedPage {
+  items: [NumberChanged!]!
+  pageInfo: PageInfo!
+}
+
+type NumberChanged {
+  id: String!
+  txHash: String!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  newNumber: BigInt!
+  transferId: String!
+  transfer: Transfer!
+}
+
+input NumberChangedFilter {
+  AND: [NumberChangedFilter]
+  OR: [NumberChangedFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  txHash: String
+  txHash_not: String
+  txHash_in: [String]
+  txHash_not_in: [String]
+  txHash_gt: String
+  txHash_lt: String
+  txHash_gte: String
+  txHash_lte: String
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  newNumber: BigInt
+  newNumber_not: BigInt
+  newNumber_in: [BigInt]
+  newNumber_not_in: [BigInt]
+  newNumber_gt: BigInt
+  newNumber_lt: BigInt
+  newNumber_gte: BigInt
+  newNumber_lte: BigInt
+  transferId: String
+  transferId_not: String
+  transferId_in: [String]
+  transferId_not_in: [String]
+  transferId_gt: String
+  transferId_lt: String
+  transferId_gte: String
+  transferId_lte: String
+  transfer_: NumberChangedTransferFilter
+}
+
+input NumberChangedTransferFilter {
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_gt: String
+  id_lt: String
+  id_gte: String
+  id_lte: String
+  from: String
+  from_not: String
+  from_in: [String]
+  from_not_in: [String]
+  from_gt: String
+  from_lt: String
+  from_gte: String
+  from_lte: String
+  to: String
+  to_not: String
+  to_in: [String]
+  to_not_in: [String]
+  to_gt: String
+  to_lt: String
+  to_gte: String
+  to_lte: String
+  value: BigInt
+  value_not: BigInt
+  value_in: [BigInt]
+  value_not_in: [BigInt]
+  value_gt: BigInt
+  value_lt: BigInt
+  value_gte: BigInt
+  value_lte: BigInt
+  txHash: String
+  txHash_not: String
+  txHash_in: [String]
+  txHash_not_in: [String]
+  txHash_gt: String
+  txHash_lt: String
+  txHash_gte: String
+  txHash_lte: String
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+}
+
+type TransferPage {
+  items: [Transfer!]!
+  pageInfo: PageInfo!
+}
+
+input TransferFilter {
+  AND: [TransferFilter]
+  OR: [TransferFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_gt: String
+  id_lt: String
+  id_gte: String
+  id_lte: String
+  from: String
+  from_not: String
+  from_in: [String]
+  from_not_in: [String]
+  from_gt: String
+  from_lt: String
+  from_gte: String
+  from_lte: String
+  to: String
+  to_not: String
+  to_in: [String]
+  to_not_in: [String]
+  to_gt: String
+  to_lt: String
+  to_gte: String
+  to_lte: String
+  value: BigInt
+  value_not: BigInt
+  value_in: [BigInt]
+  value_not_in: [BigInt]
+  value_gt: BigInt
+  value_lt: BigInt
+  value_gte: BigInt
+  value_lte: BigInt
+  txHash: String
+  txHash_not: String
+  txHash_in: [String]
+  txHash_not_in: [String]
+  txHash_gt: String
+  txHash_lt: String
+  txHash_gte: String
+  txHash_lte: String
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  numberChanges_: TransferNumberChangedFilter
+}
+
+input TransferNumberChangedFilter {
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  txHash: String
+  txHash_not: String
+  txHash_in: [String]
+  txHash_not_in: [String]
+  txHash_gt: String
+  txHash_lt: String
+  txHash_gte: String
+  txHash_lte: String
+  blockNumber: BigInt
+  blockNumber_not: BigInt
+  blockNumber_in: [BigInt]
+  blockNumber_not_in: [BigInt]
+  blockNumber_gt: BigInt
+  blockNumber_lt: BigInt
+  blockNumber_gte: BigInt
+  blockNumber_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  newNumber: BigInt
+  newNumber_not: BigInt
+  newNumber_in: [BigInt]
+  newNumber_not_in: [BigInt]
+  newNumber_gt: BigInt
+  newNumber_lt: BigInt
+  newNumber_gte: BigInt
+  newNumber_lte: BigInt
+  transferId: String
+  transferId_not: String
+  transferId_in: [String]
+  transferId_not_in: [String]
+  transferId_gt: String
+  transferId_lt: String
+  transferId_gte: String
+  transferId_lte: String
+}
+
+type _meta {
+  block: Int
+}
