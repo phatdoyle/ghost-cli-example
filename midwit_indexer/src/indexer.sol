@@ -30,7 +30,6 @@ contract MyIndex is GhostGraph {
     function onTransfer(EventDetails memory details, TransferEvent memory ev) external {
 
         //Populate our Transfers struct. 
-        // bytes32 memory transferId = details.transactionHash; 
         Transfer memory transfer = graph.getTransfer(details.transactionHash); 
         transfer.id = details.transactionHash;
         transfer.from = ev.from;

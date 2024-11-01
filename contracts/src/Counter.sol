@@ -10,7 +10,6 @@ contract Counter is ERC20, Ownable {
     event numberChanged(uint256 newNumber);
     event numberReset(bool); 
     
-
     constructor() ERC20("midwit", "MID") Ownable(msg.sender) payable {
         number = 100; 
     }
