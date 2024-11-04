@@ -121,7 +121,8 @@ function DataDisplay() {
           boxShadow: isDark ? '0 2px 4px rgba(255,255,255,0.1)' : '0 2px 4px rgba(0,0,0,0.1)',
           zIndex: 1000,
           transition: 'all 0.3s ease',
-          textAlign: 'left'  // Added this line
+          textAlign: 'left', 
+          fontSize: '14px' 
         }}>
             <div><strong>Your Balance:</strong> {walletBalance ? `${walletBalance} MID` : 'Connect Wallet'}</div>
           <div style={{ marginBottom: '4px' }}><strong>Total Supply:</strong> {formatValue(metrics.totalSupply)}</div>
@@ -139,7 +140,7 @@ function DataDisplay() {
             color: isDark ? '#fff' : '#333',
             transition: 'color 0.3s ease'
           }}>
-            Number Changes Over Time
+            Counter Value Over Time
           </h2>
           <ResponsiveContainer width="100%" height="100%">
 
@@ -173,6 +174,8 @@ function DataDisplay() {
     style={{
       fontSize: '12px',
     }}
+    domain={['auto', 'auto']} 
+    allowDataOverflow={false} 
   />
   <Tooltip 
     labelFormatter={(timestamp) => format(timestamp, 'MM/dd/yyyy HH:mm:ss')}

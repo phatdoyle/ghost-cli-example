@@ -240,7 +240,7 @@ useEffect(() => {
                     marginRight: '10px'
                   }}
                 >
-                  Increment
+                  Increase Counter
                 </button>
                 <button 
                   onClick={decrement}
@@ -254,7 +254,7 @@ useEffect(() => {
                     borderRadius: '4px'
                   }}
                 >
-                  Decrement
+                  Decrease Counter
                 </button>
               </div>
             )}

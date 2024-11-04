@@ -17,20 +17,20 @@ deploy contract
 Lets call increment 30 times. 
 ```
 for i in {1..30}; do
-  cast send 0xEC87E4C8Ac38Ff4ECe7D0E36CdBDF42c39FcE903 "increment()" --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+  cast send 0xEC87E4C8Ac38Ff4ECe7D0E36CdBDF42c39FcE903 'increment()' --rpc-url $RPC_URL --private-key $PRIVATE_KEY
 done
 ```
 
 Lets call decrement 13 times. 
 ```
 for i in {1..13}; do
-  cast send 0xEC87E4C8Ac38Ff4ECe7D0E36CdBDF42c39FcE903 "decrement()" --rpc-url $RPC_URL --private-key $PRIVATE_KEY
+  cast send 0xEC87E4C8Ac38Ff4ECe7D0E36CdBDF42c39FcE903 'decrement()' --rpc-url $RPC_URL --private-key $PRIVATE_KEY
 done
 ```
 
 I will also transfer some tokens to an address to get a few more transfer events and more holders. 
 ```
-for i in {1..13}; do
+for i in {1..100}; do
   cast send 0xEC87E4C8Ac38Ff4ECe7D0E36CdBDF42c39FcE903 "transfer(address,uint256)" 0x20ae6728381Fb6C852de87A84A3F6b1B0995c304 10000000000000000000 --rpc-url $RPC_URL --private-key $PRIVATE_KEY
 done
 ```
