@@ -32,9 +32,9 @@ function DataDisplay() {
   };
   const fetchData = async () => {
     try {
-      const response = await fetch("YOUR_GHOST_GRAPH_ENDPOINT", {
+      const response = await fetch("https://api.ghostlogs.xyz/gg/pub/654adebf-b5b8-498c-99f8-0cbc62a765f7/ghostgraph", {
         headers: {
-          "X-GHOST-KEY": "GHOST_API_KEY",
+          "X-GHOST-KEY": "46mqbiexhfp21jwxidlo4d",
           "content-type": "application/json",
         },
         method: "POST",

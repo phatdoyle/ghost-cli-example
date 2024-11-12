@@ -1,12 +1,15 @@
 
-# Midwit Indexer
-This repo contains a basic example of how to index events from a smart contract and query them through a Ghost Graph. We have 3 key components: 
+# Midwit Token Dapp. 
+This repo contains an example of how to index events from a smart contract and query them through a Ghost Graph. We have 3 key components:  
 1. Smart Contracts
 2. Ghost Graph
 3. Frontend
-Our contract will be a simple increment and decrement counter. Each time the contract is incremented or decremented we will transfer tokens to the address of the caller,and an event will be emitted. We will index these events into a Ghost Graph and then query them through our frontend. 
+Our contract will be a simple increment and decrement counter deployed to [Unichain Testnet](https://www.unichain.org/). Each time the contract is incremented or decremented we will transfer tokens to the address of the caller,and an event will be emitted. We will index these events into a Ghost Graph and then query them through our frontend. 
+![Midwit Token](./images/Midwit-Counter.png)
 
-![Midwit Token Project](./images/midwit.jpeg)
+Questions?  
+Feel free to reach out on [X](https://x.com/doyle126)
+Have questions about Ghost Graphs? Join their [telegram chat](https://t.me/ghostlogsxyz)
 
 
 ## Smart Contracts: 
@@ -20,7 +23,6 @@ update foundry.toml: `remappings = ['@openzeppelin/=lib/openzeppelin-contracts/'
 
 deploy contract
 `forge create src/Counter.sol:Counter --rpc-url $RPC_URL --chain-id 1301 --private-key $PRIVATE_KEY`
-
 
  Now lets make a few calls to our contract so we can have some event data later for indexing. Using Cast we can call function on our contract from the terminal.  This will help us generate some event data to start indexing.  Play around with cast if you need to seed some data for indexing. 
 
@@ -83,6 +85,6 @@ Once your indexer is deployed ensure that you swap out the `YOUR_GHOST_GRAPH_END
 
 `cd midwit-frontend`
 `npm install`
-`npm run dev`
+`npm run start`
 
 This will bring up our frontend application which is connect both to our smart contract and our Ghost Graph. 
