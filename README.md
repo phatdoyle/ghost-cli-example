@@ -10,7 +10,7 @@ Our contract will be a simple increment and decrement counter deployed to [Unich
 ![Midwit Token](./images/Midwit-Counter.png)
 
 Questions?  
-Feel free to reach out on [X](https://x.com/doyle126)
+Feel free to [reach out on X](https://x.com/doyle126)
 
 Have questions about Ghost Graphs? Join their [telegram chat](https://t.me/ghostlogsxyz)
 
