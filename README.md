@@ -1,8 +1,18 @@
 
-## Contracts: 
+# Midwit Indexer
+This repo contains a basic example of how to index events from a smart contract and query them through a Ghost Graph. We have 3 key components: 
+1. Smart Contracts
+2. Ghost Graph
+3. Frontend
+Our contract will be a simple increment and decrement counter. Each time the contract is incremented or decremented we will transfer tokens to the address of the caller,and an event will be emitted. We will index these events into a Ghost Graph and then query them through our frontend. 
 
-`forge init contracts`
-`cd contracts`
+![Midwit Token Project](./images/midwit.jpeg)
+
+
+## Smart Contracts: 
+
+`forge init midwit-contracts`
+`cd midwit-contracts`
 `forge install OpenZeppelin/openzeppelin-contracts`
 
 update foundry.toml: `remappings = ['@openzeppelin/=lib/openzeppelin-contracts/']`
@@ -44,4 +54,35 @@ We will now have some `transfer` data, some `numberUpdated` events that we can s
 
 Install GhostCLI https://github.com/tryghostxyz/ghost-cli 
 
-Make sure you create a ghost API and follow along on 
+Make sure you create a ghost API. 
+
+![GhostGraph API Key](./images/ghostgraph_api_key.png)
+
+Our API key will allow us to generate our Ghost Graph. 
+
+Since we are we deployed our contract to Unichain Testnet, we will generate our Ghost Graph for the Unichain Testnet. 
+
+`ghost create --chain 1301 midwit_indexer`
+
+Once we populate our `events.sol` file and our `schema.sol` file, we can run `ghost codegen` to create the rest of our files needed for our indexer. 
+
+Codegen will create a bunch of helper files. We will focus primarilty on the `indexer.sol` file. 
+
+After creating the logic within the `indexer.sol` file, we can deploy our indexer. 
+
+We run `ghost compile` and `ghost deploy`. This will create our indexer and give us a gql endpoint to query our indexer. 
+
+![Ghost Graph GQL Playground](./images/ghostgraph_gql_playground.png)
+-----------------------
+
+## Frontend
+
+We will use the `midwit-frontend` repo to query our Ghost Graph. 
+
+Once your indexer is deployed ensure that you swap out the `YOUR_GHOST_GRAPH_ENDPOINT` and `GHOST_API_KEY` with your Ghost Graph endpoint and API key in the `DataDisplay.js` file. 
+
+`cd midwit-frontend`
+`npm install`
+`npm run dev`
+
+This will bring up our frontend application which is connect both to our smart contract and our Ghost Graph. 
