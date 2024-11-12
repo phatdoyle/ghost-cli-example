@@ -1,6 +1,7 @@
 
-# Midwit Token Dapp. 
+# Midwit Token Indexer w/ [Ghost Graph](https://tryghost.xyz/) 👻
 This repo contains an example of how to index events from a smart contract and query them through a Ghost Graph. We have 3 key components:  
+
 1. Smart Contracts
 2. Ghost Graph
 3. Frontend
