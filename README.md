@@ -4,6 +4,7 @@ This repo contains an example of how to index events from a smart contract and q
 1. Smart Contracts
 2. Ghost Graph
 3. Frontend
+
 Our contract will be a simple increment and decrement counter deployed to [Unichain Testnet](https://www.unichain.org/). Each time the contract is incremented or decremented we will transfer tokens to the address of the caller,and an event will be emitted. We will index these events into a Ghost Graph and then query them through our frontend. 
 ![Midwit Token](./images/Midwit-Counter.png)
 
