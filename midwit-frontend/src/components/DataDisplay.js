@@ -34,7 +34,7 @@ function DataDisplay() {
     try {
       const response = await fetch("https://api.ghostlogs.xyz/gg/pub/654adebf-b5b8-498c-99f8-0cbc62a765f7/ghostgraph", {
         headers: {
-          "X-GHOST-KEY": "46mqbiexhfp21jwxidlo4d",
+          "X-GHOST-KEY": "GHOST_API_KEY",
           "content-type": "application/json",
         },
         method: "POST",
